@@ -1,7 +1,7 @@
 {
   "name": "html-patcher-stream",
-  "version": "1.0.0",
-  "description": "A writeable stream that uses html-patcher to update the DOM with changes",
+  "version": "1.0.1",
+  "description": "A transform stream that uses html-patcher to update the DOM with changes and then emits the changed dom root",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -25,7 +25,8 @@
   },
   "homepage": "https://github.com/RangerMauve/html-patcher-stream",
   "dependencies": {
-    "html-patcher": "0.0.3"
+    "html-patcher": "0.0.3",
+    "through2": "^0.6.3"
   },
   "devDependencies": {
     "array-concat-stream": "^1.0.0",

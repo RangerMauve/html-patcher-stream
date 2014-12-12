@@ -1,16 +1,19 @@
-var Writable = require("stream").Writable;
+var through2 = require("through2");
 var patcher = require("html-patcher");
 
-module.exports = patcherStream;
+module.exports = HtmlPatcherStream;
 
-function patcherStream(element, initial) {
+function HtmlPatcherStream(element, initial) {
 	var patch = patcher(element, initial || "");
 
-	var stream = new Writable();
-	stream._write = function (chunk, encoding, cb) {
-		patch(chunk.toString());
-		cb(null);
-	}
+	var stream = through2({objectMode:true}, function(chunk, encoding, cb) {
+		patch(chunk.toString(), function(err) {
+			if (err) return cb(err);
+
+			this.push(element);
+			cb(null);
+		}.bind(this));
+	});
 
 	return stream;
 }
