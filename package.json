@@ -1,6 +1,6 @@
 {
   "name": "html-patcher-stream",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A writeable stream that uses html-patcher to update the DOM with changes",
   "main": "index.js",
   "scripts": {
