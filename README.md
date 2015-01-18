@@ -1,33 +1,33 @@
-# html-patcher-stream
+html-patcher-stream
+===================
 
-A wrapper over [html-patcher](https://github.com/azer/html-patcher) which returns
-a writable stream. Pipe in your rendered templates and have the dom get patched
-with any changes since the last render.
+A wrapper over [html-patcher](https://github.com/azer/html-patcher) which returns a writable stream. Pipe in your rendered templates and have the dom get patched with any changes since the last render.
 
-## Installing
+Installing
+----------
 
-``` bash
+```bash
 npm install --save html-patcher-stream
 ```
 
 Use [browserify](http://browserify.org/) to make a bundle that uses this module.
 
-## API
+API
+---
 
-### `patcher(element,initial)`
+### `patcher(element,[initial])`
 
 #### parameters
 
-* `element`   (Element): The DOM element to patch to
-* `[initial]` (String):  The initial template to render out
+-	`element` (Element): The DOM element to patch to
+-	`[initial]` (String): The initial template to render out
 
 #### returns
 
-* (WritableStream): Pipe strings into this stream and it'll update the DOM in the
-element that was provided in the constructor.
+-	(WritableStream): Pipe strings into this stream and it'll update the DOM in the element that was provided in the constructor.
 
-
-## Example
+Example
+-------
 
 ```javascript
 var patcher = require("../");
@@ -56,5 +56,4 @@ function render(items) {
  */
 ```
 
-Make sure the body has been created before this script is called. Don't execute
-it while it's still in the header.
+Make sure the body has been created before this script is called. Don't execute it while it's still in the header.
